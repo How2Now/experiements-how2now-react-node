@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './How2Now.css';
@@ -23,6 +24,9 @@ class How2Now extends React.Component {
         <div className={s.container}>
           <h1>{this.props.title}</h1>
           <p>...</p>
+          <Button variant="raised" color="primary">
+            Hello World
+          </Button>
         </div>
       </div>
     );
