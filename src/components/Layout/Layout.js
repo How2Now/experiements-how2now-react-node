@@ -13,10 +13,14 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import s from './Layout.css';
+import appTheme from '../../theme/AppTheme';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
+
+const h2nTheme = createMuiTheme(appTheme);
 
 class Layout extends React.Component {
   static propTypes = {
@@ -26,10 +30,12 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        {this.props.children}
-        <Feedback />
-        <Footer />
+        <MuiThemeProvider theme={h2nTheme}>
+          <Header />
+          {this.props.children}
+          <Feedback />
+          <Footer />
+        </MuiThemeProvider>
       </div>
     );
   }
