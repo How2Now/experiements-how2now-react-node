@@ -170,7 +170,10 @@ app.get('*', async (req, res, next) => {
     // We need a reference to the sheetRegistry...
     //
 
-    data.styles = [{ id: 'css', cssText: [...css].join('') }, { id: 'css-mui', cssText: sheetsRegistry.toString() }];
+    data.styles = [
+      { id: 'css', cssText: [...css].join('') },
+      { id: 'css-mui', cssText: sheetsRegistry.toString() },
+    ];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
       data.scripts.push(...route.chunks.map(chunk => assets[chunk].js));

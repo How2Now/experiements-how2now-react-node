@@ -17,7 +17,6 @@ import s from './How2Now.css';
 class How2Now extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    cssReg: PropTypes.shape(SheetsRegistry).isRequired,
   };
 
   render() {

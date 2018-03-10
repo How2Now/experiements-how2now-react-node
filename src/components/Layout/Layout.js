@@ -34,8 +34,13 @@ const generateClassName = createGenerateClassName();
 class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    cssReg: PropTypes.shape(SheetsRegistry).isRequired,
+    cssReg: PropTypes.shape(SheetsRegistry),
   };
+
+  // Remove the server-side injected CSS.
+  componentDidMount() {
+    console.log('some shit is happening');
+  }
 
   render() {
     return (
@@ -44,7 +49,7 @@ class Layout extends React.Component {
           registry={this.props.cssReg}
           generateClassName={generateClassName}
         >
-          <MuiThemeProvider theme={h2nTheme}>
+          <MuiThemeProvider theme={h2nTheme} sheetsManager={new Map()}>
             <Header />
             {this.props.children}
             <Feedback />
