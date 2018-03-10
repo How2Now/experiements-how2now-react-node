@@ -13,12 +13,12 @@ import How2Now from './How2Now';
 
 const title = 'How2Now!';
 
-function action() {
+function action(context, params) {
   return {
     chunks: ['how2now'],
     title,
     component: (
-      <Layout>
+      <Layout cssReg={context.cssReg}>
         <How2Now title={title} />
       </Layout>
     ),

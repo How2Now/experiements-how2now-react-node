@@ -19,6 +19,7 @@ import nodeFetch from 'node-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
+import { SheetsRegistry } from 'react-jss/lib/jss';
 import App from './components/App';
 import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
@@ -149,6 +150,10 @@ app.get('*', async (req, res, next) => {
       query: req.query,
     };
 
+    const sheetsRegistry = new SheetsRegistry();
+
+    context.cssReg = sheetsRegistry;
+
     const route = await router.resolve(context);
 
     if (route.redirect) {
@@ -158,8 +163,13 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
-      <App context={context}>{route.component}</App>,
+      <App cssReg={sheetsRegistry} context={context}>{route.component}</App>,
     );
+
+    // At this point the css registry should have the MUI css?
+    // We need a reference to the sheetRegistry...
+    //
+
     data.styles = [{ id: 'css', cssText: [...css].join('') }];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
