@@ -29,41 +29,7 @@ import Footer from '../Footer';
 
 const h2nTheme = createMuiTheme(appTheme);
 
-// Create a sheetsRegistry instance.
-const sheetsRegistry = new SheetsRegistry();
 const generateClassName = createGenerateClassName();
-/*
-const themeProvider = new MuiThemeProvider({ theme: h2nTheme }, {});
-const jssProvider = new JssProvider(
-  {
-    registry: sheetsRegistry,
-    generateClassName,
-    children: themeProvider,
-  },
-  {},
-);
-
-jssProvider.getChildContext();
-jssProvider.render();
-
-*/
-// Render the component to a string.
-/*
-const html = renderToString(
-  <div>
-    <JssProvider
-      registry={sheetsRegistry}
-      generateClassName={generateClassName}
-    >
-      <MuiThemeProvider theme={h2nTheme}>
-        <div />
-      </MuiThemeProvider>
-    </JssProvider>
-  </div>
-)
-*/
-// Grab the CSS from our sheetsRegistry.
-///const css = sheetsRegistry.toString();
 
 class Layout extends React.Component {
   static propTypes = {
@@ -71,17 +37,7 @@ class Layout extends React.Component {
     cssReg: PropTypes.shape(SheetsRegistry).isRequired,
   };
 
-  sheetsRegistry = new SheetsRegistry();
-
-  key = 'Layouty';
-
-  funky() {
-    console.log('funkeh!!');
-  }
-
   render() {
-    const { cssReg } = this.context;
-
     return (
       <div>
         <JssProvider
@@ -98,21 +54,6 @@ class Layout extends React.Component {
       </div>
     );
   }
-
 }
-
-// Grab the CSS from our sheetsRegistry.
-const muiCss = sheetsRegistry.toString();
-
-function getCss() {
-  return sheetsRegistry.toString();
-}
-
-const cssWrapper = { _getCss: getCss };
-
-/* TODO:
-* Hack an object that has a _getCSS() method that returns the css string
- */
 
 export default withStyles(normalizeCss, s)(Layout);
-// export default withStyles(normalizeCss, s, muiCss)(Layout);
