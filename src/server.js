@@ -151,6 +151,7 @@ app.get('*', async (req, res, next) => {
     };
 
     const sheetsRegistry = new SheetsRegistry();
+    const { muiCssId } = config.appStrings;
 
     context.cssReg = sheetsRegistry;
 
@@ -163,7 +164,9 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
-      <App cssReg={sheetsRegistry} context={context}>{route.component}</App>,
+      <App cssReg={sheetsRegistry} context={context}>
+        {route.component}
+      </App>,
     );
 
     // At this point the css registry should have the MUI css?
@@ -172,7 +175,7 @@ app.get('*', async (req, res, next) => {
 
     data.styles = [
       { id: 'css', cssText: [...css].join('') },
-      { id: 'css-mui', cssText: sheetsRegistry.toString() },
+      { id: muiCssId, cssText: sheetsRegistry.toString() },
     ];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
@@ -182,6 +185,7 @@ app.get('*', async (req, res, next) => {
     data.app = {
       apiUrl: config.api.clientUrl,
     };
+    data.muiCssId = muiCssId;
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
     res.status(route.status || 200);

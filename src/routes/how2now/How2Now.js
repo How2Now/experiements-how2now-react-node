@@ -9,7 +9,6 @@
 
 import React from 'react';
 import Button from 'material-ui/Button';
-import SheetsRegistry from 'react-jss';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './How2Now.css';

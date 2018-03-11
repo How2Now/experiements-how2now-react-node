@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import { renderToString } from 'react-dom/server';
 import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import PropTypes from 'prop-types';
@@ -37,11 +36,6 @@ class Layout extends React.Component {
     cssReg: PropTypes.shape(SheetsRegistry),
   };
 
-  // Remove the server-side injected CSS.
-  componentDidMount() {
-    console.log('some shit is happening');
-  }
-
   render() {
     return (
       <div>
@@ -59,6 +53,7 @@ class Layout extends React.Component {
       </div>
     );
   }
+
 }
 
 export default withStyles(normalizeCss, s)(Layout);
