@@ -24,12 +24,12 @@ exports[`Layout renders children correctly 1`] = `
           href="/contact"
           onClick={[Function]}
         >
-          Contact
+          How2Now
         </a>
         <span
           className="spacer"
         >
-           | 
+           |
         </span>
         <a
           className="link"
