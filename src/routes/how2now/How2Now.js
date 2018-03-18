@@ -8,7 +8,8 @@
  */
 
 import React from 'react';
-import Button from 'material-ui/Button';
+import { Button, Tooltip } from 'material-ui';
+import { Help } from 'material-ui-icons';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './How2Now.css';
@@ -27,6 +28,11 @@ class How2Now extends React.Component {
           <Button variant="raised" color="primary">
             Hello World
           </Button>
+          <Tooltip>
+            <Button variant="fab" color="primary" aria-label="Help">
+              <Help />
+            </Button>
+          </Tooltip>
         </div>
       </div>
     );
