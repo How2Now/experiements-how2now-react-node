@@ -27,6 +27,7 @@
     "isomorphic-style-loader": "^4.0.0",
     "jsonwebtoken": "^8.1.0",
     "material-ui": "^1.0.0-beta.36",
+    "material-ui-icons": "^1.0.0-beta.36",
     "node-fetch": "^2.0.0",
     "normalize.css": "^7.0.0",
     "passport": "^0.4.0",
