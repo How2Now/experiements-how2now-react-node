@@ -9,6 +9,7 @@
 
 import UniversalRouter from 'universal-router';
 import routes from './routes';
+import appRoutes from './routes/app';
 
 export default new UniversalRouter(routes, {
   resolveRoute(context, params) {
