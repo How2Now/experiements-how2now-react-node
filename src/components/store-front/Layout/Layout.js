@@ -14,14 +14,14 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 // external-global styles must be imported in your JS.
-import normalizeCss from 'normalize.css';
+import normalizeCss from '../../../../node_modules/normalize.css/normalize.css';
 import {
   MuiThemeProvider,
   createMuiTheme,
   createGenerateClassName,
 } from 'material-ui/styles';
 import s from './Layout.css';
-import appTheme from '../../theme/AppTheme';
+import appTheme from '../../../theme/AppTheme';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';

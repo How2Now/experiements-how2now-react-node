@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Layout from '../../components/Layout';
+import Layout from '../../components/store-front/Layout';
 import How2Now from './How2Now';
 
 const title = 'How2Now!';
