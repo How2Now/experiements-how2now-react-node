@@ -12,14 +12,15 @@ import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-
-// external-global styles must be imported in your JS.
-import normalizeCss from '../../../../node_modules/normalize.css/normalize.css';
 import {
   MuiThemeProvider,
   createMuiTheme,
   createGenerateClassName,
 } from 'material-ui/styles';
+
+// external-global styles must be imported in your JS.
+import normalizeCss from '../../../../node_modules/normalize.css/normalize.css';
+
 import s from './Layout.css';
 import appTheme from '../../../theme/AppTheme';
 import Header from '../Header';
