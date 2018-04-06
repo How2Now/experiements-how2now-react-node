@@ -11,6 +11,8 @@ import UniversalRouter from 'universal-router';
 import routes from './routes';
 import appRoutes from './routes/app';
 
+routes.children.unshift(...appRoutes);
+
 export default new UniversalRouter(routes, {
   resolveRoute(context, params) {
     if (typeof context.route.load === 'function') {
