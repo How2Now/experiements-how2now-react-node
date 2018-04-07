@@ -104,6 +104,12 @@ app.get(
     res.redirect('/');
   },
 );
+// Adding redirect logic for login
+app.post('/login', function(req, res) {
+  // const bod = req.body;
+
+  res.redirect('/app/dashboard');
+});
 
 //
 // Register API middleware
