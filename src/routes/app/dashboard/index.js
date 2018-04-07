@@ -9,14 +9,14 @@
 
 import React from 'react';
 import Layout from '../../../components/app/Layout';
-import Page from '../../../components/app/Page';
+import Dashboard from './Dashboard';
 
 function action(context, params) {
   return {
     title: 'Dashboard',
     component: (
-      <Layout cssReg={context.cssReg}>
-        <Page title="Dashboard" html="Dashboard" />
+      <Layout cssReg={context.cssReg} mainSection="dashboard">
+        <Dashboard />
       </Layout>
     ),
   };

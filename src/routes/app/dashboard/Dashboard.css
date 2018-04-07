@@ -7,25 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../../variables.css';
+@import '../../components/variables.css';
 
-.drawerPaper {
-  position: relative;
-  width: 240px;
-  z-index: 5;
-}
-
-/*.toolbar theme.mixins.toolbar*/
-
-.toolbar {
-  min-height: 64px;
-}
-
-.listLabel {
+.root {
   padding-left: 20px;
+  padding-right: 20px;
 }
 
-.selectedNavItem {
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.08);
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: var(--max-content-width);
 }
