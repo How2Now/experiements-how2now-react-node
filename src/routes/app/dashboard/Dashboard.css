@@ -7,11 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../../components/variables.css';
+@import '../../../components/variables.css';
 
 .root {
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-top: var(--content-top-margin);
+  padding: 0 20px;
+  flex: 1;
 }
 
 .container {

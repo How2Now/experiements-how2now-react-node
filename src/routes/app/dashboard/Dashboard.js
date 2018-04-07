@@ -8,9 +8,6 @@
  */
 
 import React from 'react';
-import { Button, Tooltip } from 'material-ui';
-import { Help } from 'material-ui-icons';
-import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Dashboard.css';
 
