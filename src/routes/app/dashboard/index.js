@@ -11,11 +11,11 @@ import React from 'react';
 import Layout from '../../../components/app/Layout';
 import Page from '../../../components/app/Page';
 
-function action() {
+function action(context, params) {
   return {
     title: 'Dashboard',
     component: (
-      <Layout>
+      <Layout cssReg={context.cssReg}>
         <Page title="Dashboard" html="Dashboard" />
       </Layout>
     ),

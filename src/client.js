@@ -101,7 +101,7 @@ async function onLocationChange(location, action) {
           const elem = document.getElementById('css');
           if (elem) elem.parentNode.removeChild(elem);
 
-          removeMuiSsrCss();
+          // removeMuiSsrCss();
 
           return;
         }
