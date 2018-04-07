@@ -8,21 +8,17 @@
  */
 
 import React from 'react';
-import Layout from '../../components/store-front/Layout';
-import NotFound from './NotFound';
+import Layout from '../../../components/app/Layout';
+import Page from '../../../components/app/Page';
 
-const title = 'Page Not Found';
-
-function action() {
+function action(context, params) {
   return {
-    chunks: ['not-found'],
-    title,
+    title: 'Dashboard',
     component: (
-      <Layout>
-        <NotFound title={title} />
+      <Layout cssReg={context.cssReg}>
+        <Page title="Dashboard" html="Dashboard" />
       </Layout>
     ),
-    status: 404,
   };
 }
 

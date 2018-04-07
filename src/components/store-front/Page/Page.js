@@ -10,28 +10,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Home.css';
+import s from './Page.css';
 
-class Home extends React.Component {
+class Page extends React.Component {
   static propTypes = {
-    news: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
-        content: PropTypes.string,
-      }),
-    ).isRequired,
+    title: PropTypes.string.isRequired,
+    html: PropTypes.string.isRequired,
   };
 
   render() {
+    const { title, html } = this.props;
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>How2Now Promo</h1>
+          <h1>{title}</h1>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Home);
+export default withStyles(s)(Page);

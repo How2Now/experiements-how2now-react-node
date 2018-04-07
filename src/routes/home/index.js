@@ -9,7 +9,7 @@
 
 import React from 'react';
 import Home from './Home';
-import Layout from '../../components/Layout';
+import Layout from '../../components/store-front/Layout';
 
 async function action({ fetch }) {
   const resp = await fetch('/graphql', {
@@ -23,7 +23,7 @@ async function action({ fetch }) {
     title: 'React Starter Kit',
     component: (
       <Layout>
-        <Home news={data.news} />
+        <Home />
       </Layout>
     ),
   };
