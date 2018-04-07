@@ -19,3 +19,7 @@
 .toolbar {
   min-height: 64px;
 }
+
+.listLabel {
+  padding-left: 20px;
+}

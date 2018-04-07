@@ -10,10 +10,13 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Drawer from 'material-ui/Drawer';
-import { List, ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+// import { List, ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List from 'material-ui/List';
+import ListItem from 'material-ui/List/ListItem';
+import ListItemText from 'material-ui/List/ListItemText';
 import Divider from 'material-ui/Divider';
 import s from './SideNav.css';
-import Link from '../../common/Link/Link';
+import PropTypes from "prop-types";
 
 const navWidth = 240;
 
@@ -45,6 +48,10 @@ const styles = theme => ({
 * */
 
 class SideNav extends React.Component {
+  static propTypes = {
+    current: PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <Drawer
@@ -54,7 +61,7 @@ class SideNav extends React.Component {
         }}
       >
         <div className={s.toolbar} />
-        <p>Study</p>
+        <p className={s.listLabel}>Study</p>
         <List>
           <ListItem button>
             <ListItemText primary="Chat" />
@@ -67,7 +74,7 @@ class SideNav extends React.Component {
           </ListItem>
         </List>
         <Divider />
-        <p>Account</p>
+        <p className={s.listLabel}>Account</p>
         <List>
           <ListItem button>
             <ListItemText primary="Dashboard" />
