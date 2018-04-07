@@ -24,6 +24,7 @@ import normalizeCss from '../../../../node_modules/normalize.css/normalize.css';
 import s from './Layout.css';
 import appTheme from '../../../theme/AppTheme';
 import Header from '../Header';
+import SideNav from '../SideNav';
 import Footer from '../Footer';
 
 const h2nTheme = createMuiTheme(appTheme);
@@ -45,6 +46,7 @@ class Layout extends React.Component {
         >
           <MuiThemeProvider theme={h2nTheme} sheetsManager={new Map()}>
             <Header />
+            <SideNav />
             {this.props.children}
             <Footer />
           </MuiThemeProvider>

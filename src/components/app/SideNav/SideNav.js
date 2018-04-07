@@ -9,33 +9,74 @@
 
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import Drawer from 'material-ui/Drawer';
+import { List, ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 import s from './SideNav.css';
 import Link from '../../common/Link/Link';
+
+const navWidth = 240;
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    height: 430,
+    zIndex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    display: 'flex',
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  drawerPaper: {
+    position: 'relative',
+    width: navWidth,
+  },
+  toolbar: theme.mixins.toolbar,
+});
+
+/*
+{/*
+  <ListItemIcon>
+    <InboxIcon />
+  </ListItemIcon>
+*\/}
+* */
 
 class SideNav extends React.Component {
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <span className={s.text}>© How2Now</span>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/">
-            Home
-          </Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/admin">
-            Admin
-          </Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/privacy">
-            Privacy
-          </Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/not-found">
-            Not Found
-          </Link>
-        </div>
-      </div>
+      <Drawer
+        variant="permanent"
+        classes={{
+          paper: s.drawerPaper,
+        }}
+      >
+        <div className={s.toolbar} />
+        <p>Study</p>
+        <List>
+          <ListItem button>
+            <ListItemText primary="Chat" />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Library" />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Tutors" />
+          </ListItem>
+        </List>
+        <Divider />
+        <p>Account</p>
+        <List>
+          <ListItem button>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Logout" />
+          </ListItem>
+        </List>
+      </Drawer>
     );
   }
 }

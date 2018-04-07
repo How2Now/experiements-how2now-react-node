@@ -12,7 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import AccountCircle from 'material-ui-icons//AccountCircle';
+import AccountCircle from 'material-ui-icons/AccountCircle';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import s from './Header.css';
@@ -26,7 +26,7 @@ class Header extends React.Component {
   render() {
     // const { classes } = props;
     return (
-      <AppBar position="static" className={s.root}>
+      <AppBar position="static" className={s.root} colorPrimary={s.root.color}>
         <Toolbar>
           <IconButton
             className={s.menuButton}
