@@ -38,6 +38,9 @@ class Header extends React.Component {
           <Typography variant="title" color="inherit" className={s.flex}>
             How2Now
           </Typography>
+          <Typography variant="subheading" color="inherit">
+            Logged in as Matt
+          </Typography>
           <IconButton aria-haspopup="true" color="inherit">
             <AccountCircle />
           </IconButton>

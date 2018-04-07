@@ -35,6 +35,7 @@ class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     cssReg: PropTypes.shape(SheetsRegistry),
+    mainSection: PropTypes.string.isRequired,
   };
 
   render() {
@@ -46,7 +47,7 @@ class Layout extends React.Component {
         >
           <MuiThemeProvider theme={h2nTheme} sheetsManager={new Map()}>
             <Header />
-            <SideNav />
+            <SideNav current={this.props.mainSection} />
             {this.props.children}
           </MuiThemeProvider>
         </JssProvider>

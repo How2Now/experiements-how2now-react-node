@@ -63,23 +63,23 @@ class SideNav extends React.Component {
         <div className={s.toolbar} />
         <p className={s.listLabel}>Study</p>
         <List>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/chat" selected={this.props.current === "search-chat"} className={this.props.current === "search-chat" ? s.selectedNavItem: undefined}>
             <ListItemText primary="Chat" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/library" selected={this.props.current === "search-library"} className={this.props.current === "search-library" ? s.selectedNavItem: undefined}>
             <ListItemText primary="Library" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/tutors" selected={this.props.current === "search-tutors"} className={this.props.current === "search-tutors" ? s.selectedNavItem: undefined}>
             <ListItemText primary="Tutors" />
           </ListItem>
         </List>
         <Divider />
         <p className={s.listLabel}>Account</p>
         <List>
-          <ListItem button>
+          <ListItem button component="a" href="/app/dashboard" selected={this.props.current === "dashboard"} className={this.props.current === "dashboard" ? s.selectedNavItem: undefined}>
             <ListItemText primary="Dashboard" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/">
             <ListItemText primary="Logout" />
           </ListItem>
         </List>

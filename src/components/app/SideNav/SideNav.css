@@ -24,3 +24,8 @@
 .listLabel {
   padding-left: 20px;
 }
+
+.selectedNavItem {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.08);
+}
