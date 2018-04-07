@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import SheetsRegistry from 'react-jss';
 import PropTypes from 'prop-types';
 
 const ContextType = {
@@ -18,6 +19,8 @@ const ContextType = {
   fetch: PropTypes.func.isRequired,
   pathname: PropTypes.string.isRequired,
   query: PropTypes.object,
+  // CSS Registry Hack
+  cssReg: PropTypes.shape(SheetsRegistry),
 };
 
 /**
@@ -46,6 +49,7 @@ class App extends React.PureComponent {
   static propTypes = {
     context: PropTypes.shape(ContextType).isRequired,
     children: PropTypes.element.isRequired,
+    cssReg: PropTypes.shape(SheetsRegistry),
   };
 
   static childContextTypes = ContextType;

@@ -43,6 +43,16 @@ let appInstance;
 
 const scrollPositionsHistory = {};
 
+function removeMuiSsrCss() {
+  // const cssId = container.attributes
+  const cssId = container.dataset.muiCssId;
+  const muiSsrCss = document.getElementById(cssId);
+
+  if (muiSsrCss && muiSsrCss.parentNode) {
+    muiSsrCss.parentNode.removeChild(muiSsrCss);
+  }
+}
+
 // Re-render the app when window.location changes
 async function onLocationChange(location, action) {
   // Remember the latest scroll position for the previous location
@@ -90,6 +100,9 @@ async function onLocationChange(location, action) {
 
           const elem = document.getElementById('css');
           if (elem) elem.parentNode.removeChild(elem);
+
+          // removeMuiSsrCss();
+
           return;
         }
 

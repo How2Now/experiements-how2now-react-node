@@ -8,8 +8,8 @@
  */
 
 import React from 'react';
-import Layout from '../../components/Layout';
-import Page from '../../components/Page';
+import Layout from '../../components/store-front/Layout';
+import Page from '../../components/store-front/Page';
 import privacy from './privacy.md';
 
 function action() {

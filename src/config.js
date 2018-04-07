@@ -68,4 +68,9 @@ module.exports = {
         'KTZ6cxoKnEakQCeSpZlaUCJWGAlTEBJj0y2EMkUBujA7zWSvaQ',
     },
   },
+
+  // Strings
+  appStrings: {
+    muiCssId: 'mui-css',
+  },
 };
