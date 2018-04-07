@@ -10,6 +10,7 @@
 import React from 'react';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
 import Table from 'material-ui/Table';
 import TableHead from 'material-ui/Table/TableHead';
 import TableRow from 'material-ui/Table/TableRow';
@@ -19,18 +20,18 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './DashboardTutors.css';
 
 let id = 0;
-function createData(name, date, action) {
+function createData(name, date, action, href) {
   id += 1;
-  return { id, name, date, action };
+  return { id, name, date, action, href };
 }
 
-function createTutorData(name, date, action) {
+function createTutorData(name, action) {
   id += 1;
-  return { id, name, date, action };
+  return { id, name, action };
 }
 
 const upcomingData = [
-  createData('Vic Reeves', "Now!", "Start session"),
+  createData('Vic Reeves', "Now!", "Start session", "/app/session"),
   createData('Bob Mortimer', "12th May 2018", "Cancel"),
 ];
 
@@ -53,7 +54,7 @@ class DashboardTutors extends React.Component {
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell numeric>Date</TableCell>
+                  <TableCell>Date</TableCell>
                   <TableCell numeric>Action</TableCell>
                 </TableRow>
               </TableHead>
@@ -62,15 +63,16 @@ class DashboardTutors extends React.Component {
                   return (
                     <TableRow key={n.id}>
                       <TableCell>{n.name}</TableCell>
-                      <TableCell numeric>{n.date}</TableCell>
-                      <TableCell numeric>{n.action}</TableCell>
+                      <TableCell>{n.date}</TableCell>
+                      <TableCell numeric>
+                        <Button variant="raised" color={n.id === 1 ? 'primary': 'secondary'} size="small" href={n.href || '#'}>{n.action}</Button>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
               </TableBody>
             </Table>
           </Typography>
-          <Divider />
           <Typography component="display1">My tutors</Typography>
           <Typography component="paragraph">
             <Table className={s.table}>
@@ -85,7 +87,9 @@ class DashboardTutors extends React.Component {
                   return (
                     <TableRow key={n.id}>
                       <TableCell>{n.name}</TableCell>
-                      <TableCell numeric>{n.action}</TableCell>
+                      <TableCell numeric>
+                        <Button variant="raised" color="secondary" size="small" href="/app/book-session">Book Tutor</Button>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
