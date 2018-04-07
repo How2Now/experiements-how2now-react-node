@@ -63,23 +63,23 @@ class SideNav extends React.Component {
         <div className={s.toolbar} />
         <p className={s.listLabel}>Study</p>
         <List>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/chat">
             <ListItemText primary="Chat" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/library">
             <ListItemText primary="Library" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/app/search/tutors">
             <ListItemText primary="Tutors" />
           </ListItem>
         </List>
         <Divider />
         <p className={s.listLabel}>Account</p>
         <List>
-          <ListItem button>
+          <ListItem button component="a" href="/app/dashboard">
             <ListItemText primary="Dashboard" />
           </ListItem>
-          <ListItem button>
+          <ListItem button component="a" href="/">
             <ListItemText primary="Logout" />
           </ListItem>
         </List>
