@@ -14,3 +14,7 @@
 .container {}
 
 .table {}
+
+table {
+  margin-bottom: 30px;
+}
