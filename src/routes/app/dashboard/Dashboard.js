@@ -13,14 +13,19 @@ import AppBar from 'material-ui/AppBar';
 import Tabs from 'material-ui/Tabs';
 import Tab from 'material-ui/Tabs/Tab';
 import Typography from 'material-ui/Typography';
+import Paper from 'material-ui/Paper';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import DashboardAccountInfo from './DashboardAccountInfo';
+import DashboardTutors from './DashboardTutors';
 import s from './Dashboard.css';
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
+    <Paper elevation={4}>
+      <Typography component="div" style={{ padding: 8 * 3 }}>
+        {props.children}
+      </Typography>
+    </Paper>
   );
 }
 
@@ -64,12 +69,12 @@ class Dashboard extends React.Component {
               <Tab label="More" />
             </Tabs>
           </AppBar>
-          {value === 0 && <TabContainer>Item One</TabContainer>}
-          {value === 1 && <TabContainer>Item Two</TabContainer>}
-          {value === 2 && <TabContainer>Item Three</TabContainer>}
-          {value === 3 && <TabContainer>Item Four</TabContainer>}
-          {value === 4 && <TabContainer>Item Five</TabContainer>}
-          {value === 5 && <TabContainer>Item Six</TabContainer>}
+          {value === 0 && <TabContainer><DashboardAccountInfo/></TabContainer>}
+          {value === 1 && <TabContainer><DashboardTutors /></TabContainer>}
+          {value === 2 && <TabContainer>In progress...</TabContainer>}
+          {value === 3 && <TabContainer>In progress...</TabContainer>}
+          {value === 4 && <TabContainer>In progress...</TabContainer>}
+          {value === 5 && <TabContainer>In progress...</TabContainer>}
         </div>
       </div>
     );
