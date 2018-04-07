@@ -39,7 +39,7 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={s.wrapper}>
         <JssProvider
           registry={this.props.cssReg}
           generateClassName={generateClassName}
@@ -48,7 +48,6 @@ class Layout extends React.Component {
             <Header />
             <SideNav />
             {this.props.children}
-            <Footer />
           </MuiThemeProvider>
         </JssProvider>
       </div>

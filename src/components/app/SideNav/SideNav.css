@@ -12,6 +12,7 @@
 .drawerPaper {
   position: relative;
   width: 240px;
+  z-index: 5;
 }
 
 /*.toolbar theme.mixins.toolbar*/
