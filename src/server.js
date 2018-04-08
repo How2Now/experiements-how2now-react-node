@@ -136,10 +136,10 @@ app.get('/pricing', function(req, res) {
   res.sendFile(path.join(__dirname + '/static-content/pricing.html'));
 });
 // Abduls's content
-app.get('/app/abdul', function(req, res) {
-  res.sendFile(path.join(__dirname + '/static-content/how2nowwebsite.html'));
+app.get('/app/session', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/session.html'));
 });
-app.get('/app/booking', function(req, res) {
+app.get('/app/book-session', function(req, res) {
   res.sendFile(path.join(__dirname + '/static-content/booking.html'));
 });
 
