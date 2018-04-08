@@ -8,9 +8,8 @@
  */
 
 import React from 'react';
-import Layout from '../../components/store-front/Layout';
-import Page from '../../components/store-front/Page';
-import about from './about.md';
+import Layout from '../../components/Layout';
+import Page from '../../components/Page';
 
 function action() {
   return {
@@ -18,8 +17,7 @@ function action() {
     title: about.title,
     component: (
       <Layout>
-        <p>jhj</p>
-        <Page {...about} />
+        <Page title="adbuls pages" />
       </Layout>
     ),
   };

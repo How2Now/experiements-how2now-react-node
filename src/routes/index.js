@@ -45,6 +45,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'about' */ './about'),
     },
     {
+      path: '/abdul',
+      load: () => import(/* webpackChunkName: 'about' */ './how2nowwebsite'),
+    },
+    {
       path: '/privacy',
       load: () => import(/* webpackChunkName: 'privacy' */ './privacy'),
     },

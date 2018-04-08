@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Booking</title>
+
+<style type="text/css">
+	
+input{
+		position: fixed;
+		margin-left: 525px;
+		bottom: 530px;
+		font-size: 150%;
+}
+
+button{
+		position: fixed;
+		margin-left: 640px;
+		bottom: 250px;
+		font-size: 150%;
+}
+
+.timeClass{
+		position: fixed;
+		margin-left: 750px;
+		bottom: 530px;
+		font-size: 150%;
+}
+
+.thirtyMin{
+		position: fixed;
+		background-color: #4CAF50;
+     	text-align: center;
+     	border: none;
+     	color: white;		
+		margin-left: 600px;
+		bottom: 450px;
+		font-size: 200%;
+    	cursor: pointer;
+    	display: inline-block;
+}
+
+.oneHour{
+		position: fixed;
+		background-color: #4CAF50;
+     	text-align: center;
+     	border: none;
+     	color: white;		
+		margin-left: 630px;
+		bottom: 400px;
+		font-size: 200%;
+    	cursor: pointer;
+    	display: inline-block;
+
+}
+
+.twoHours{
+		position: fixed;
+		background-color: #4CAF50;
+     	text-align: center;
+     	border: none;
+     	color: white;		
+		margin-left: 620px;
+		bottom: 350px;
+		font-size: 200%;
+    	cursor: pointer;
+    	display: inline-block;
+}
+
+
+</style>
+
+
+</head>
+
+<body style="background: url(file:///Users/abdul/Desktop/Code/HTML/H2N_Folder/Images/Booking.png); background-repeat: no-repeat; background-size: 100% 100%; height: 1000px; background-attachment: fixed;">
+
+<input type="date" id="myDate" value="2018-02-09">
+<input  class="timeClass" type="time" id="myTime" value="15:00">
+<button onclick="location.href='file:///Users/abdul/Desktop/Code/HTML/H2N_Folder/How2NowWebsite.html';">Submit</button>
+
+
+<button class="thirtyMin">30 Minutes</button>
+<button class="oneHour">1 Hour</button>
+<button class="twoHours">2 Hours</button>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDate").value;
+    document.getElementById("demo").innerHTML = x;
+    va
+    var xy = document.getElementById("myTime").value;
+    document.getElementById("demo").innerHTML = x, xy;
+}
+
+</script>
+
+</body>
+</html>
