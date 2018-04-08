@@ -128,6 +128,12 @@ app.use(
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/static-content/index.html'));
 });
+app.get('/contact', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/contact.html'));
+});
+app.get('/pricing', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/pricing.html'));
+});
 
 //
 // Register server-side rendering middleware
