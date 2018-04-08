@@ -34,9 +34,12 @@ class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     cssReg: PropTypes.shape(SheetsRegistry),
+    header: PropTypes.bool,
   };
 
   render() {
+    const renderHeader = this.props.header === undefined ? true: this.props.header;
+
     return (
       <div>
         <JssProvider
@@ -44,7 +47,7 @@ class Layout extends React.Component {
           generateClassName={generateClassName}
         >
           <MuiThemeProvider theme={h2nTheme} sheetsManager={new Map()}>
-            <Header />
+            {renderHeader && <Header />}
             {this.props.children}
             <Feedback />
             <Footer />
@@ -53,7 +56,6 @@ class Layout extends React.Component {
       </div>
     );
   }
-
 }
 
 export default withStyles(normalizeCss, s)(Layout);
