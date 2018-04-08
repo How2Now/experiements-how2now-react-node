@@ -124,6 +124,11 @@ app.use(
   })),
 );
 
+//Adding static files hacks!
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/index.html'));
+});
+
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
