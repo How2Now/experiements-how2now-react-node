@@ -17,10 +17,13 @@ const routes = {
   children: [
     // The home route is added to client.js to make sure shared components are
     // added to client.js as well and not repeated in each individual route chunk.
+    /*
+    * Replacing this with static content
     {
       path: '',
-      load: () => import(/* webpackMode: 'eager' */ './home'),
+      load: () => import(/* webpackMode: 'eager' *\/ './home'),
     },
+    */
     {
       path: '/contact',
       load: () => import(/* webpackChunkName: 'contact' */ './contact'),
