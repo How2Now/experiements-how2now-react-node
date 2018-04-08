@@ -124,7 +124,8 @@ app.use(
   })),
 );
 
-//Adding static files hacks!
+// Adding static files hacks!
+// Denee's content
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/static-content/index.html'));
 });
@@ -133,6 +134,13 @@ app.get('/contact', function(req, res) {
 });
 app.get('/pricing', function(req, res) {
   res.sendFile(path.join(__dirname + '/static-content/pricing.html'));
+});
+// Abduls's content
+app.get('/app/session', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/session.html'));
+});
+app.get('/app/book-session', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/booking.html'));
 });
 
 //

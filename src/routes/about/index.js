@@ -18,6 +18,7 @@ function action() {
     title: about.title,
     component: (
       <Layout>
+        <p>jhj</p>
         <Page {...about} />
       </Layout>
     ),
