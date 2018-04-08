@@ -18,12 +18,13 @@ class Search extends React.Component {
   };
 
   render() {
-    const imgUrl = `/img/search-${this.props.type}.svg`;
+    const searchType = this.props.type;
+    const imgUrl = `/img/search-${searchType}.svg`;
 
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <img src={imgUrl} />
+          {searchType === 'chat' ? <a href="/app/book-session"><img src={imgUrl} /></a> : <img src={imgUrl} />}
         </div>
       </div>
     );
