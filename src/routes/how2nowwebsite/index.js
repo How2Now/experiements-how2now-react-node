@@ -10,7 +10,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Page from '../../components/Page';
-import about from './about.md';
 
 function action() {
   return {
@@ -18,8 +17,7 @@ function action() {
     title: about.title,
     component: (
       <Layout>
-        <p>jhj</p>
-        <Page {...about} />
+        <Page title="adbuls pages" />
       </Layout>
     ),
   };
