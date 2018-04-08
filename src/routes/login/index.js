@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Layout from '../../components/Layout';
+import Layout from '../../components/store-front/Layout';
 import Login from './Login';
 
 const title = 'Log In';
@@ -18,7 +18,7 @@ function action() {
     chunks: ['login'],
     title,
     component: (
-      <Layout>
+      <Layout header={false}>
         <Login title={title} />
       </Layout>
     ),

@@ -17,13 +17,20 @@ const routes = {
   children: [
     // The home route is added to client.js to make sure shared components are
     // added to client.js as well and not repeated in each individual route chunk.
+    /*
+    * Replacing this with static content
     {
       path: '',
-      load: () => import(/* webpackMode: 'eager' */ './home'),
+      load: () => import(/* webpackMode: 'eager' *\/ './home'),
     },
+    */
     {
       path: '/contact',
       load: () => import(/* webpackChunkName: 'contact' */ './contact'),
+    },
+    {
+      path: '/how2now',
+      load: () => import(/* webpackChunkName: 'how2now' */ './how2now'),
     },
     {
       path: '/login',
@@ -62,7 +69,7 @@ const routes = {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = `${route.title || 'Untitled Page'} - www.reactstarterkit.com`;
+    route.title = `${route.title || 'Untitled Page'} - How2Now`;
     route.description = route.description || '';
 
     return route;

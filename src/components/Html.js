@@ -27,6 +27,7 @@ class Html extends React.Component {
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     app: PropTypes.object, // eslint-disable-line
     children: PropTypes.string.isRequired,
+    muiCssId: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -35,7 +36,7 @@ class Html extends React.Component {
   };
 
   render() {
-    const { title, description, styles, scripts, app, children } = this.props;
+    const { title, description, styles, scripts, app, children, muiCssId } = this.props;
     return (
       <html className="no-js" lang="en">
         <head>
@@ -58,7 +59,11 @@ class Html extends React.Component {
           ))}
         </head>
         <body>
-          <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
+          <div
+            id="app"
+            data-mui-css-id={muiCssId}
+            dangerouslySetInnerHTML={{ __html: children }}
+          />
           <script
             dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }}
           />

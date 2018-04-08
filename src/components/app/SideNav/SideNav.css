@@ -1,0 +1,31 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+@import '../../variables.css';
+
+.drawerPaper {
+  position: relative;
+  width: 240px;
+  z-index: 5;
+}
+
+/*.toolbar theme.mixins.toolbar*/
+
+.toolbar {
+  min-height: 64px;
+}
+
+.listLabel {
+  padding-left: 20px;
+}
+
+.selectedNavItem {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.08);
+}

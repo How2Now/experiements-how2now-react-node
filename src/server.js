@@ -19,6 +19,7 @@ import nodeFetch from 'node-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
+import { SheetsRegistry } from 'react-jss/lib/jss';
 import App from './components/App';
 import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
@@ -103,6 +104,12 @@ app.get(
     res.redirect('/');
   },
 );
+// Adding redirect logic for login
+app.post('/login', function(req, res) {
+  // const bod = req.body;
+
+  res.redirect('/app/dashboard');
+});
 
 //
 // Register API middleware
@@ -116,6 +123,25 @@ app.use(
     pretty: __DEV__,
   })),
 );
+
+// Adding static files hacks!
+// Denee's content
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/index.html'));
+});
+app.get('/contact', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/contact.html'));
+});
+app.get('/pricing', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/pricing.html'));
+});
+// Abduls's content
+app.get('/app/session', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/session.html'));
+});
+app.get('/app/book-session', function(req, res) {
+  res.sendFile(path.join(__dirname + '/static-content/booking.html'));
+});
 
 //
 // Register server-side rendering middleware
@@ -149,6 +175,11 @@ app.get('*', async (req, res, next) => {
       query: req.query,
     };
 
+    const sheetsRegistry = new SheetsRegistry();
+    const { muiCssId } = config.appStrings;
+
+    context.cssReg = sheetsRegistry;
+
     const route = await router.resolve(context);
 
     if (route.redirect) {
@@ -158,9 +189,19 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
-      <App context={context}>{route.component}</App>,
+      <App cssReg={sheetsRegistry} context={context}>
+        {route.component}
+      </App>,
     );
-    data.styles = [{ id: 'css', cssText: [...css].join('') }];
+
+    // At this point the css registry should have the MUI css?
+    // We need a reference to the sheetRegistry...
+    //
+
+    data.styles = [
+      { id: 'css', cssText: [...css].join('') },
+      { id: muiCssId, cssText: sheetsRegistry.toString() },
+    ];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
       data.scripts.push(...route.chunks.map(chunk => assets[chunk].js));
@@ -169,6 +210,7 @@ app.get('*', async (req, res, next) => {
     data.app = {
       apiUrl: config.api.clientUrl,
     };
+    data.muiCssId = muiCssId;
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
     res.status(route.status || 200);
